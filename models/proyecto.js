@@ -4,7 +4,6 @@ const ProyectoSchema = Schema({
   titulo: {
     type: String,
     required: [true, "El titulo es obligatorio"],
-    unique: true,
   },
   estado: {
     type: Boolean,
@@ -21,10 +20,15 @@ const ProyectoSchema = Schema({
     default: 0,
     required: true,
   },
+  montoActual: {
+    type: Number,
+    default: 0,
+    
+  },
   fechaCreado: {
     type: Date,
     ref: "Fecha creado",
-    default: Date.now.toLocaleDateString,
+    default: Date.now(),
   },
 
   descripcion: {

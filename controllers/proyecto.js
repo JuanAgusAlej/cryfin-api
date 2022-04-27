@@ -20,8 +20,8 @@ const obtenerProyectos = async (req = request, res = response) => {
 
 //Crear Proyecto--------------------------------------
 const crearProyecto = async (req, res = response) => {
-  const { monto, billetera, descripcion, fechaCreado, img } = req.body;
-  const titulo = req.body.titulo.toUpperCase();
+  const {titulo, monto, billetera, descripcion, fechaCreado, img } = req.body;
+  
 
   //Generar la data a guardar
   const data = {

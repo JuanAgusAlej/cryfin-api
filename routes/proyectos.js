@@ -1,7 +1,6 @@
 const { Router } = require("express");
 
 const { check } = require("express-validator");
-const { validarJWT } = require("../middlewares/validar-jwt");
 const { validarCampos } = require("../middlewares/validar-campos");
 
 //ProyectoExiste
@@ -21,7 +20,7 @@ router.post(
   "/",
   [
     check("titulo", "El titulo es obligatorio").not().isEmpty(),
-    check("monto", "El monto no es un numero").not().isNumeric(),
+    check("monto", "El monto no es un numero").isNumeric(),
     check(
       "descripcion",
       "La descripcion debe tener como mínimo 150 caracteres"
