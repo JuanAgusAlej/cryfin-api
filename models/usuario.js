@@ -17,11 +17,7 @@ const UsuarioSchema = Schema({
   img: {
     type: String,
   },
-  rol: {
-    type: String,
-    required: true,
-    // enum: ["USER_ROLE", "ADMIN_ROLE"],
-  },
+  
   estado: {
     type: Boolean,
     default: true,
