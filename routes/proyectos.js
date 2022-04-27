@@ -20,8 +20,12 @@ router.get("/", obtenerProyectos);
 router.post(
   "/",
   [
-    validarJWT,
-    check("nombre", "El nombre es obligatorio").not().isEmpty(),
+    check("titulo", "El titulo es obligatorio").not().isEmpty(),
+    check("monto", "El monto no es un numero").not().isNumeric(),
+    check(
+      "descripcion",
+      "La descripcion debe tener como mínimo 150 caracteres"
+    ).isLength({ min: 150 }),
     validarCampos,
   ],
   crearProyecto

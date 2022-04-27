@@ -8,10 +8,7 @@ const obtenerProyectos = async (req = request, res = response) => {
 
   const [total, proyectos] = await Promise.all([
     Proyecto.countDocuments(query),
-    Proyecto.find(query)
-      .skip(Number(desde))
-      .limit(Number(limite))
-      .populate("usuario", "nombre"),
+    Proyecto.find(query).skip(Number(desde)).limit(Number(limite)),
     //Como traigo los datos de los usuarios y las categorias?🤔
   ]);
 
@@ -21,21 +18,19 @@ const obtenerProyectos = async (req = request, res = response) => {
   });
 };
 
-
 //Crear Proyecto--------------------------------------
 const crearProyecto = async (req, res = response) => {
-  const { monto, billetera, descripcion, fechaCreado, img} = req.body;
+  const { monto, billetera, descripcion, fechaCreado, img } = req.body;
   const titulo = req.body.titulo.toUpperCase();
-  
+
   //Generar la data a guardar
   const data = {
-    nombre,
+    titulo,
     billetera,
     monto,
     descripcion,
-    usuario: req.usuario._id,
-    fechaCreado, 
-    img
+    fechaCreado,
+    img,
   };
 
   const proyecto = new Proyecto(data);
