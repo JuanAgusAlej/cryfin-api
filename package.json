@@ -4,7 +4,7 @@
   "description": "Backend comision 22i",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index.js"
   },
   "author": "RollingCode",
   "license": "ISC",
